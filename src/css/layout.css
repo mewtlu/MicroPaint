@@ -449,6 +449,9 @@ body .sp-preview{
 .info .toggle.toggled{
 	margin-bottom: -3px;
 }
+.toggle.toggled ~ .sp-replacer {
+    display: none;
+}
 .block.details .row{
 	clear:both;
 	margin-bottom: 2px;
