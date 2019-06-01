@@ -1,4 +1,4 @@
-//about - A Javascript Image filter library for the HTML5 Canvas tag. 
+//about - A Javascript Image filter library for the HTML5 Canvas tag.
 //author - https://github.com/arahaya/ImageFilters.js
 //demo - http://www.arahaya.com/imagefilters/
 
@@ -591,7 +591,7 @@ ImageFilters.GaussianBlur = function (srcImageData, strength) {
  */
 /*
  Copyright (c) 2010 Mario Klingemann
- 
+
  Permission is hereby granted, free of charge, to any person
  obtaining a copy of this software and associated documentation
  files (the "Software"), to deal in the Software without
@@ -600,10 +600,10 @@ ImageFilters.GaussianBlur = function (srcImageData, strength) {
  copies of the Software, and to permit persons to whom the
  Software is furnished to do so, subject to the following
  conditions:
- 
+
  The above copyright notice and this permission notice shall be
  included in all copies or substantial portions of the Software.
- 
+
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -1537,7 +1537,7 @@ ImageFilters.Invert = function (srcImageData) {
 	return dstImageData;
 };
 
-ImageFilters.Mosaic = function (srcImageData, blockSize) {
+ImageFilters.Pixelate = function (srcImageData, blockSize) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,

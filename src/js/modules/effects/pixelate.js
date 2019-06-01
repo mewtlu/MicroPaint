@@ -4,14 +4,14 @@ import Base_layers_class from './../../core/base-layers.js';
 import ImageFilters from './../../libs/imagefilters.js';
 import alertify from './../../../../node_modules/alertifyjs/build/alertify.min.js';
 
-class Effects_mosaic_class {
+class Effects_pixelate_class {
 
 	constructor() {
 		this.POP = new Dialog_class();
 		this.Base_layers = new Base_layers_class();
 	}
 
-	mosaic() {
+	pixelate() {
 		var _this = this;
 
 		if (config.layer.type != 'image') {
@@ -20,7 +20,7 @@ class Effects_mosaic_class {
 		}
 
 		var settings = {
-			title: 'Mosaic',
+			title: 'Pixelate',
 			preview: true,
 			effects: true,
 			params: [
@@ -60,11 +60,11 @@ class Effects_mosaic_class {
 		size = Math.min(data.width, data.height) * size / 100;
 		size = Math.round(size);
 
-		var filtered = ImageFilters.Mosaic(data, size);
+		var filtered = ImageFilters.Pixelate(data, size);
 
 		return filtered;
 	}
 
 }
 
-export default Effects_mosaic_class;
+export default Effects_pixelate_class;
