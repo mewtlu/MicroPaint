@@ -1,8 +1,8 @@
 {
-  "name": "miniPaint",
+  "name": "MicroPaint",
   "version": "4.2.2",
-  "author": "Vilius L.",
-  "description": "Online graphics editing tool lets create, edit images using HTML5 technologies.",
+  "author": "Luke Roberts",
+  "description": "A minimal image editing library.",
   "keywords": [
     "canvas",
     "drawing",
@@ -11,15 +11,14 @@
     "effects"
   ],
   "scripts": {
-    "server": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/viliusle/miniPaint"
+    "url": "https://github.com/mewtlu/microPaint"
   },
-  "homepage": "https://github.com/viliusle/miniPaint",
+  "homepage": "https://github.com/mewtlu/microPaint",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
