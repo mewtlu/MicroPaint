@@ -186,6 +186,9 @@ body .sp-preview{
 	padding: 3px 10px 0 10px;
 	border: 0;
 }
+.attributes.block:empty {
+    background-color: transparent;
+}
 .attributes .item{
 	display: inline-block;
 	margin-right: 20px;
