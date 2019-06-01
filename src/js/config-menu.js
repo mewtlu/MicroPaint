@@ -3,27 +3,8 @@ var menu_template = `
 		<li>
 			<a class="trn" href="#">File</a>
 			<ul>
-				<li><a class="trn" data-target="file/new.new" href="#">New</a></li>
-				<li><div class="mid-line"></div></li>
-				<li class="more">
-					<a class="trn" href="#">Open</a>
-					<ul>
-					<li><a class="trn dots" data-target="file/open.open_file" data-key="Drag&Drop" href="#">Open File</a></li>
-					<li><a class="trn dots" data-target="file/open.open_dir" href="#">Open Directory</a></li>
-					<li><a class="trn dots" data-target="file/open.open_webcam" href="#">Open from Webcam</a></li>
-					<li><a class="trn dots" data-target="file/open.open_url" href="#">Open URL</a></li>
-					<li><a class="trn dots" data-target="file/open.open_data_url" href="#">Open Data URL</a></li>
-					<li><a class="trn dots" data-target="file/open.open_template_test" href="#">Open test template</a></li>
-					</ul>
-				</li>
-				<li><a class="trn dots" data-target="file/search.search" href="#">Search images</a></li>
-				<li><div class="mid-line"></div></li>
-				<li><a class="trn dots" data-target="file/save.save" data-key="S" href="#">Save as</a></li>
-				<li><a class="trn dots" data-target="file/save.save_data_url" href="#">Save as data URL</a></li>
-				<li><a class="trn dots" data-target="file/print.print" data-key="Ctrl-P" href="#">Print</a></li>
-				<li><div class="mid-line"></div></li>
-				<li><a class="trn" data-target="file/quicksave.quicksave" data-key="F9" href="#">Quick save</a></li>
-				<li><a class="trn" data-target="file/quickload.quickload" data-key="F10" href="#">Quick load</a></li>
+				<li><a class="trn dots" data-target="file/save.save" data-key="S" href="#">Save locally</a></li>
+				<li><a class="trn dots" data-target="file/save.save_data_url" href="#">Save to server</a></li>
 			</ul>
 		</li>
 		<li>
@@ -107,56 +88,6 @@ var menu_template = `
 			<a class="trn" href="#">Effects</a>
 			<ul id="effects_list">
 				<li><a class="trn" data-target="effects/pixelate.pixelate" href="#">Pixelate</a>
-			</ul>
-		</li>
-		<li>
-			<a class="trn" href="#">Tools</a>
-			<ul>
-				<li><div class="mid-line"></div></li>
-				<li><a class="trn dots" data-target="tools/borders.borders" href="#">Borders</a></li>
-				<li><a class="trn" data-target="tools/sprites.sprites" href="#">Sprites</a></li>
-				<li><a class="trn" data-target="tools/keypoints.keypoints" href="#">Key-points</a></li>
-				<li><a class="trn dots" data-target="tools/content_fill.content_fill" href="#">Content fill</a></li>
-				<li><div class="mid-line"></div></li>
-				<li><a class="trn dots" data-target="tools/color_to_alpha.color_to_alpha" href="#">Color to alpha</a></li>
-				<li><a class="trn dots" data-target="tools/color_zoom.color_zoom" href="#">Color Zoom</a></li>
-				<li><a class="trn dots" data-target="tools/replace_color.replace_color" href="#">Replace Color</a></li>
-				<li><a class="trn dots" data-target="tools/restore_alpha.restore_alpha" href="#">Restore alpha</a></li>
-				<li class="more">
-					<a class="trn" href="#">External</a>
-					<ul>
-						<li><a class="trn external" target="_blank" href="https://tinypng.com/">Compress PNG and JPEG</a>
-					</ul>
-				</li>
-				<li><div class="mid-line"></div></li>
-				<li><a class="trn dots" data-target="tools/settings.settings" href="#">Settings</a></li>
-			</ul>
-		</li>
-		<li>
-			<a class="trn" href="#">Help</a>
-			<ul>
-				<li><a class="trn dots" data-target="help/shortcuts.shortcuts" href="#">Keyboard Shortcuts</a></li>
-				<li><a class="trn external" target="_blank" href="https://github.com/viliusle/miniPaint/issues">Report issues</a></li>
-				<li class="more">
-					<a class="trn" href="#">Language</a>
-					<ul>
-						<li><a data-target="help/translate.translate.en" href="#">English</a>
-						<li><div class="mid-line"></div></li>
-						<li><a data-target="help/translate.translate.zh" href="#">简体中文）</a>
-						<li><a data-target="help/translate.translate.es" href="#">Español</a>
-						<li><a data-target="help/translate.translate.fr" href="#">French</a>
-						<li><a data-target="help/translate.translate.de" href="#">German</a>
-						<li><a data-target="help/translate.translate.it" href="#">Italiano</a>
-						<li><a data-target="help/translate.translate.ja" href="#">Japanese</a>
-						<li><a data-target="help/translate.translate.ko" href="#">Korean</a>
-						<li><a data-target="help/translate.translate.lt" href="#">Lietuvių</a>
-						<li><a data-target="help/translate.translate.pt" href="#">Portuguese</a>
-						<li><a data-target="help/translate.translate.ru" href="#">Russian</a>
-						<li><a data-target="help/translate.translate.tr" href="#">Turkish</a>
-					</ul>
-				</li>
-				<li><div class="mid-line"></div></li>
-				<li><a class="trn dots" data-target="help/about.about" href="#">About</a></li>
 			</ul>
 		</li>
 	</ul>
