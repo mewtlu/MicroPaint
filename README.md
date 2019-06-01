@@ -2,6 +2,11 @@
 
 A very lightweight, minimal online image editor library based significantly on [miniPaint](https://github.com/viliusle/miniPaint).
 
+## Build instructions
+
+- Build for development: `npm run dev`
+- Build for production: `npm run build`
+
 ## License
 MIT License
 
