@@ -9,13 +9,13 @@ import GIF from './../../libs/gifjs/gif.js';
 
 var instance = null;
 
-/** 
+/**
  * manages files / save
- * 
+ *
  * @author ViliusL
  */
 class File_save_class {
-	
+
 	constructor() {
 		//singleton
 		if (instance) {
@@ -98,7 +98,7 @@ class File_save_class {
 					for (var i in config.layers) {
 						if (config.layers[i].visible == false)
 							continue;
-						
+
 						this.Base_layers.select(config.layers[i].id);
 						_this.save_action(params, true);
 					}
@@ -143,13 +143,42 @@ class File_save_class {
 			return;
 		}
 
+		var that = this;
+
 		var settings = {
-			title: 'Data URL',
-			params: [
-				{name: "url", title: "URL:", type: "textarea", value: data_url},
-			],
+			type: "POST",
+			url: window.Params.server_save,
+			data: {
+				file_data: data_url,
+				file_overwrite: true,
+				file_path: window.Params.server_filepath,
+			},
+			success: function(response) {
+				try {
+					response = JSON.parse(response);
+				} catch (exception) {
+					console.error('Failed while parsing response while saving file to server.', exception);
+				}
+
+				var settings;
+
+				if (response.success) {
+					settings = {
+						title: 'Success',
+						message: 'File successfully uploaded.',
+					};
+				} else {
+					settings = {
+						title: 'Error',
+						message: 'File upload failed.',
+					};
+				}
+
+				that.POP.show(settings);
+			}
 		};
-		this.POP.show(settings);
+
+		$.ajax(settings);
 	}
 
 	update_file_size(file_size) {
@@ -310,10 +339,10 @@ class File_save_class {
 			this.update_file_size('-');
 		}
 	}
-	
+
 	/**
 	 * saves data in requested way
-	 * 
+	 *
 	 * @param {object} user_response parameters
 	 * @param {boolean} autoname if use name from layer, false by default
 	 */
@@ -361,7 +390,7 @@ class File_save_class {
 			//temp canvas
 			var canvas;
 			var ctx;
-			
+
 			//get data
 			if (user_response.layers == 'Selected' && type != 'GIF') {
 				canvas = this.Base_layers.convert_layer_to_canvas();
@@ -373,7 +402,7 @@ class File_save_class {
 				canvas.width = config.WIDTH;
 				canvas.height = config.HEIGHT;
 				this.disable_canvas_smooth(ctx);
-				
+
 				this.Base_layers.convert_layers_to_canvas(ctx);
 			}
 		}
@@ -485,14 +514,14 @@ class File_save_class {
 			});
 		}
 	}
-	
+
 	fillCanvasBackground(ctx, color, width = config.WIDTH, height = config.HEIGHT) {
 		ctx.beginPath();
 		ctx.rect(0, 0, width, height);
 		ctx.fillStyle = color;
 		ctx.fill();
 	}
-	
+
 	check_format_support(canvas, data_header, show_error) {
 		var data = canvas.toDataURL(data_header);
 		var actualType = data.replace(/^data:([^;]*).*/, '$1');
@@ -506,7 +535,7 @@ class File_save_class {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * exports all layers to JSON
 	 */
@@ -577,10 +606,10 @@ class File_save_class {
 
 		return JSON.stringify(export_data, null, "\t");
 	}
-	
+
 	/**
 	 * removes smoothing, because it look ugly during zoom
-	 * 
+	 *
 	 * @param {ctx} ctx
 	 */
 	disable_canvas_smooth(ctx) {

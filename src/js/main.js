@@ -15,6 +15,7 @@ import Base_gui_class from './core/base-gui.js';
 import Base_layers_class from './core/base-layers.js';
 import Base_tools_class from './core/base-tools.js';
 import Base_state_class from './core/base-state.js';
+import Helper_class from './libs/helpers.js';
 
 window.addEventListener('load', function (e) {
 	//initiate app
@@ -22,11 +23,13 @@ window.addEventListener('load', function (e) {
 	var Base_tools = new Base_tools_class(true);
 	var GUI = new Base_gui_class();
 	var Base_state = new Base_state_class();
+	var Helper = new Helper_class();
 
 	//register as global for quick or external access
 	window.Layers = Layers;
 	window.AppConfig = config;
 	window.State = Base_state;	// window.State.save();
+	window.Params = Helper.get_url_parameters();
 
 	//render all
 	GUI.load_modules();
