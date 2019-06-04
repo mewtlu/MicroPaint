@@ -88,7 +88,7 @@ class Base_gui_class {
 		else {
 			config.TRANSPARENCY = false;
 		}
-		
+
 		//transparency_type
 		var transparency_type = this.Helper.getCookie('transparency_type');
 		if (transparency_type === null) {
@@ -112,7 +112,6 @@ class Base_gui_class {
 		this.GUI_information.render_main_information();
 		this.GUI_details.render_main_details();
 		this.GUI_menu.render_main();
-		this.load_saved_changes();
 
 		this.set_events();
 		this.load_translations();
@@ -206,30 +205,15 @@ class Base_gui_class {
 		document.getElementById('canvas_wrapper').style.height = h + 'px';
 	}
 
-	load_saved_changes() {
-		var targets = document.querySelectorAll('.toggle');
-		for (var i = 0; i < targets.length; i++) {
-			if (targets[i].dataset.target == undefined)
-				continue;
-
-			var target = document.getElementById(targets[i].dataset.target);
-			var saved = this.Helper.getCookie(targets[i].dataset.target);
-			if (saved === 0) {
-				targets[i].classList.toggle('toggled');
-				target.classList.add('hidden');
-			}
-		}
-	}
-
 	load_translations() {
 		var lang = this.Helper.getCookie('language');
-		
+
 		//load from params
 		var params = this.Helper.get_url_parameters();
 		if(params.lang != undefined){
 			lang = params.lang.replace(/([^a-z]+)/gi, '');
 		}
-		
+
 		if (lang != null && lang != config.LANG) {
 			config.LANG = lang.replace(/([^a-z]+)/gi, '');
 			this.Help_translate.translate(config.LANG);
@@ -350,10 +334,10 @@ class Base_gui_class {
 			ctx.stroke();
 		}
 	}
-	
+
 	/**
 	 * change draw area size
-	 * 
+	 *
 	 * @param {int} width
 	 * @param {int} height
 	 */
@@ -362,20 +346,20 @@ class Base_gui_class {
 		config.HEIGHT = parseInt(height);
 		this.prepare_canvas();
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @returns {object} keys: width, height
 	 */
 	get_visible_area_size() {
 		var wrapper = document.getElementById('main_wrapper');
 		var page_w = wrapper.clientWidth;
 		var page_h = wrapper.clientHeight;
-		
+
 		//find visible size in pixels, but make sure its correct even if image smaller then screen
 		var w = Math.min(Math.ceil(config.WIDTH * config.ZOOM), Math.ceil(page_w / config.ZOOM));
 		var h = Math.min(Math.ceil(config.HEIGHT * config.ZOOM), Math.ceil(page_h / config.ZOOM));
-		
+
 		return {
 			width: w,
 			height: h,
@@ -384,7 +368,7 @@ class Base_gui_class {
 
 	/**
 	 * change theme or set automatically from cookie if possible
-	 * 
+	 *
 	 * @param {string} theme_name
 	 */
 	change_theme(theme_name){

@@ -1,16 +1,17 @@
 /**
  * user dialogs library
- * 
+ *
  * @author ViliusL
- * 
+ *
  * Usage:
- * 
+ *
  * import Dialog_class from './libs/popup.js';
  * var POP = new popup();
- * 
+ *
  * var settings = {
  *		title: 'Differences',
  *		comment: '',
+ *		message: '',
  *		preview: true,
  *		className: '',
  *		params: [
@@ -23,7 +24,7 @@
  *		on_cancel: function(params){...},
  * };
  * this.POP.show(settings);
- * 
+ *
  * Params types:
  * - name		type				example
  * - ---------------------------------------------------------------
@@ -33,7 +34,7 @@
  * - value		string				'314'
  * - values		array fo strings	['one', 'two', 'three']
  * - range		numbers interval	[0, 255]
- * - step		int/float			1	
+ * - step		int/float			1
  * - placeholder	text			'enter number here'
  * - html		html text			'<b>bold</b>'
  * - function	function			'custom_function'
@@ -52,6 +53,7 @@ var template = `
 	<span class="grey right" id="popup_comment"></span>
 	<h2 class="trn" id="popup_title"></h2>
 	<div id="dialog_content">
+		<div id="popup_message"></div>
 		<div id="preview_content"></div>
 		<div id="params_content"></div>
 	</div>
@@ -98,7 +100,7 @@ class Dialog_class {
 
 	/**
 	 * shows dialog
-	 * 
+	 *
 	 * @param {array} config
 	 */
 	show(config) {
@@ -117,13 +119,14 @@ class Dialog_class {
 		this.effects = config.effects || false;
 		this.className = config.className || '';
 		this.comment = config.comment || '';
+		this.message = config.message || '';
 
 		this.show_action();
 	}
 
 	/**
 	 * hides dialog
-	 * 
+	 *
 	 * @param {boolean} success
 	 * @returns {undefined}
 	 */
@@ -143,6 +146,7 @@ class Dialog_class {
 		this.title = null;
 		this.className = '';
 		this.comment = '';
+		this.message = '';
 		this.onfinish = false;
 		this.oncancel = false;
 	}
@@ -205,7 +209,7 @@ class Dialog_class {
 
 		this.hide(true);
 	}
-	
+
 	//"Cancel" pressed
 	cancel() {
 		if (this.oncancel) {
@@ -301,6 +305,7 @@ class Dialog_class {
 		document.getElementById("pretitle_area").innerHTML = html_pretitle_area;
 		document.getElementById("popup_title").innerHTML = this.title;
 		document.getElementById("popup_comment").innerHTML = this.comment;
+		document.getElementById("popup_message").innerHTML = this.message;
 		document.getElementById("preview_content").innerHTML = html_preview_content;
 		document.getElementById("params_content").innerHTML = html_params;
 		if (this.onfinish != false) {

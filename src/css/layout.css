@@ -186,6 +186,9 @@ body .sp-preview{
 	padding: 3px 10px 0 10px;
 	border: 0;
 }
+.attributes.block:empty {
+    background-color: transparent;
+}
 .attributes .item{
 	display: inline-block;
 	margin-right: 20px;
@@ -288,7 +291,6 @@ body .sp-preview{
 	right:0 !important;
 }
 .sidebar_right .block.layers{
-	flex: 1;
 	overflow-y: auto;
 }
 
@@ -450,6 +452,9 @@ body .sp-preview{
 .info .toggle.toggled{
 	margin-bottom: -3px;
 }
+.toggle.toggled ~ .sp-replacer {
+    display: none;
+}
 .block.details .row{
 	clear:both;
 	margin-bottom: 2px;
@@ -591,7 +596,6 @@ canvas{
 }
 @media screen and (max-height: 720px){
 	.sidebar_left{
-		width: 79px;
 		padding: 4px 2px 0px 2px;
 	}
 	.sidebar_left .item{
@@ -600,7 +604,4 @@ canvas{
 		margin-right: 5px;
 		margin: 1px 3px 0 3px;
 	}
-	.main_wrapper{
-		margin-left: 85px;
-	}	
 }
