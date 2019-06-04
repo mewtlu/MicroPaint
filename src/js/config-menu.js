@@ -1,12 +1,6 @@
 var menu_template = `
 	<ul>
-		<li>
-			<a class="trn" href="#">File</a>
-			<ul>
-				<li><a class="trn dots" data-target="file/save.save" data-key="S" href="#">Save locally</a></li>
-				<li><a class="trn dots" data-target="file/save.save_data_url" href="#">Save to server</a></li>
-			</ul>
-		</li>
+		<li><a class="trn" data-target="file/save.save_data_url" href="#">Save</a></li>
 		<li>
 			<a class="trn" href="#">Edit</a>
 			<ul>
