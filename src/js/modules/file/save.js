@@ -145,14 +145,25 @@ class File_save_class {
 
 		var that = this;
 
+		var objRequestData = {
+			file_data: data_url,
+			file_overwrite: true,
+			file_path: window.Params.server_filepath,
+		};
+
+
+		if (window.Params.params) {
+			var objRequestParameters = JSON.parse(decodeURIComponent(window.Params.params));
+
+			for (var p in objRequestParameters) {
+				objRequestData[p] = objRequestParameters[p];
+			}
+		}
+
 		var settings = {
 			type: "POST",
 			url: window.Params.server_save,
-			data: {
-				file_data: data_url,
-				file_overwrite: true,
-				file_path: window.Params.server_filepath,
-			},
+			data: objRequestData,
 			success: function(response) {
 				try {
 					response = JSON.parse(response);
