@@ -117,6 +117,7 @@ class Dialog_class {
 		this.onchange = config.on_change || false;
 		this.onload = config.on_load || false;
 		this.effects = config.effects || false;
+		this.send_message = config.send_message || false;
 		this.className = config.className || '';
 		this.comment = config.comment || '';
 		this.message = config.message || '';
@@ -137,6 +138,11 @@ class Dialog_class {
 			this.oncancel(params);
 		}
 		document.getElementById("popup").style.display = 'none';
+
+		if (this.send_message) {
+			window.parent.postMessage(this.title);
+		}
+
 		this.parameters = [];
 		this.active = false;
 		this.preview = false;
