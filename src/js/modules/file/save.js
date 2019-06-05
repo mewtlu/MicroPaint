@@ -176,7 +176,8 @@ class File_save_class {
 				if (response.success) {
 					settings = {
 						title: 'Success',
-						message: 'File successfully uploaded.',
+						send_message: true,
+						message: response.message || 'File successfully uploaded.',
 					};
 				} else {
 					settings = {
