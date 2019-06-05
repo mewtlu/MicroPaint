@@ -182,7 +182,7 @@ class File_save_class {
 				} else {
 					settings = {
 						title: 'Error',
-						message: 'File upload failed.',
+						message: response.message || 'File upload failed.',
 					};
 				}
 
