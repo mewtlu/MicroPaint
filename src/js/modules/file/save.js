@@ -176,12 +176,12 @@ class File_save_class {
 				if (response.success) {
 					settings = {
 						title: 'Success',
-						message: 'File successfully uploaded.',
+						message: response.message || 'File successfully uploaded.',
 					};
 				} else {
 					settings = {
 						title: 'Error',
-						message: 'File upload failed.',
+						message: response.message || 'File upload failed.',
 					};
 				}
 
