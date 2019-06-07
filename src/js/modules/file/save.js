@@ -122,7 +122,7 @@ class File_save_class {
 	save_data_url() {
 		var max = 10 * 1000 * 1000;
 		if (config.WIDTH * config.WIDTH > 10 * 1000 * 1000) {
-			alertify.error('Size is too big, max ' + this.Helper.number_format(max, 0) + ' pixels.');
+			alertify.error('Image too large, max ' + this.Helper.number_format(max, 0) + ' pixels.');
 			return;
 		}
 
@@ -137,9 +137,9 @@ class File_save_class {
 		this.Base_layers.convert_layers_to_canvas(ctx);
 		var data_url = canvas.toDataURL();
 
-		max = 1 * 1000 * 1000;
+		max = 1 * 1000 * 1000 * 1000 * 50;
 		if (data_url.length > max) {
-			alertify.error('Size is too big, max ' + this.Helper.number_format(max, 0) + ' bytes.');
+			alertify.error('Request image URL too large, max ' + this.Helper.number_format(max, 0) + ' characters.');
 			return;
 		}
 
